@@ -4,21 +4,35 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:text": "textlint 'articles/*.md' 'books/**/*.md'",
+    "lint:md": "markdownlint-cli2",
+    "lint:link": "find articles books -name '*.md' -not -name '.keep' -exec npx markdown-link-check --config .markdown-link-check.json --quiet {} \\;",
+    "validate:meta": "node scripts/validate-zenn-meta.mjs",
+    "ci": "npm run lint:text && npm run lint:md && npm run lint:link && npm run validate:meta",
+    "article": "npx zenn new:article",
+    "book": "npx zenn new:book",
+    "preview": "npx zenn preview"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://happlycola53@github.com/happycola53/zenn-contents.git"
+    "url": "git+https://happycola53@github.com/happycola53/zenn-contents.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/happycola53/zenn-contents/issues"
   },
   "homepage": "https://github.com/happycola53/zenn-contents#readme",
-  "dependencies": {
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-link-check": "^3.13.6",
+    "markdownlint-cli2": "^0.17.2",
+    "textlint": "^14.7.1",
+    "textlint-filter-rule-comments": "^1.2.2",
+    "textlint-rule-preset-ja-spacing": "^2.4.2",
+    "textlint-rule-preset-ja-technical-writing": "^10.0.1",
     "zenn-cli": "^0.4.7"
   }
 }
