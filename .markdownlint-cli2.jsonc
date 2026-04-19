@@ -1,0 +1,19 @@
+{
+  "globs": ["articles/*.md", "books/**/*.md"],
+  "config": {
+    "default": true,
+    // 行の長さ制限を無効化（日本語 + URL で超過しやすい）
+    "MD013": false,
+    // インラインHTML許可（Zenn独自記法 ::: との干渉回避）
+    "MD033": false,
+    // 最初の行がヘッダーでなくてもよい（frontmatterがあるため）
+    "MD041": false,
+    // コードブロックのスタイル
+    "MD046": { "style": "fenced" },
+    // 順序なしリストのスタイル
+    "MD004": { "style": "dash" },
+    // 強調記号の統一
+    "MD049": { "style": "asterisk" },
+    "MD050": { "style": "asterisk" }
+  }
+}

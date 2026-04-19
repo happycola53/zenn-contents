@@ -1,0 +1,20 @@
+{
+  "httpHeaders": [
+    {
+      "urls": ["https://github.com"],
+      "headers": {
+        "Accept": "text/html"
+      }
+    }
+  ],
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206],
+  "timeout": "20s",
+  "ignorePatterns": [
+    { "pattern": "^https://twitter\\.com" },
+    { "pattern": "^https://x\\.com" },
+    { "pattern": "^https://zenn\\.dev/dashboard" }
+  ]
+}
